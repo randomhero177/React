@@ -1,44 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# js_ru_08_06_17
 
-## Available Scripts
+##HT1 Реализовать список комментов для статьи, показывать/скрывать его по клику на кнопку, на которой должен меняться текст
 
-In the project directory, you can run:
+##HT2.1 Вынести функционал аккордеона в декоратор
+##HT2.2 Добавить в него возможность закрыть статью при повторном клике
+##HT2.3 Написать для всего propTypes
 
-### `npm start`
+##HT3.1 Подключить https://github.com/gpbl/react-day-picker с возможностью отображения промежутка дат, выводить этот промежуток на экран
+##HT3.2 Создать в CommentList форму добавления нового коммента(user, text), без самого функционала добавления
+##HT3.3 Добавить валидацию (подсвечивать красным инпут, если там < 5 или > 15 символов для имени и <20 или >50 для текста)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##HT4.1 Поместить состояние фильтров в стор
+##HT4.2 Реалзовать фильрацию статей(попадают в промежуток дат и выбраны в комбобоксе), если фильтр не активен - не учитывать его
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+##HT5.1 Хранить статьи аналогично комментам(ключ-значение)
+##HT5.2 Создать мидлвару для генерации рандомных id
+##HT5.3 Реализовать функционал добавления коммента к статье
 
-### `npm test`
+##HT6.1 Создать Record для комментария, хранить комменты в структуре аналогичной articles
+##HT6.2 Реализовать загрузку комментов для статьи(при открытии списка), грузить один раз, показывать лоадер
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##HT7.1 Реализовать роуты для пагинаци комментов(/comments/:page)
+##HT7.2 Реализовать функционал пагианции комментов(по 5 на страницу, загружать каждую страницу только один раз), api: /api/comment?limit=5&offset=5
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+##HT8.1 Подготовить и прислать мне на почту список вопросов к последней встрече
+##HT8.2 Починить баг с загрузкой статьи
+##HT8.3 Реализовать локализацию, поместив словарь в контекст. С возможностью переключения языка
