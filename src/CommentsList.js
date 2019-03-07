@@ -3,12 +3,12 @@ import Article from './Article'
 import Comment from './Comment'
 
 export default class CommentList extends Component{
-  constructor(props){
-    super(props)
+  static defaultProps = {
+    comments: []
+  }
 
-    this.state = {
-      isOpen: false
-    }
+  state = {
+    isOpen: false
   }
 
   render(){
@@ -19,7 +19,7 @@ export default class CommentList extends Component{
 
     return(
       <div>
-        {comments  ? (<button onClick = {this.toggleComment}>{btnText}</button>) : null}
+        {comments.length  ? (<button onClick = {this.toggleComment}>{btnText}</button>) : 'хуй'}
         {this.getBody()}
       </div>
     )
@@ -29,7 +29,7 @@ export default class CommentList extends Component{
     if(!this.state.isOpen) return null
 
     const {comments} = this.props;
-    const commentElem = (comments) ?  comments.map((comment) => <div key = {comment.id}><Comment comment = {comment}/></div>) : null;
+    const commentElem = (comments.length) ?  comments.map((comment) => <div key = {comment.id}><Comment comment = {comment}/></div>) : 'хуй';
     return(
       <div>{commentElem}</div>
     )

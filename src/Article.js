@@ -9,11 +9,10 @@ export default class Article extends Component {
       title: PropTypes.string.isRequired,
       text: PropTypes.string
     }).isRequired
-
   }
 
   constructor(props){
-    super(props)
+    super(props);
 
     this.state = {
       isOpen: false
