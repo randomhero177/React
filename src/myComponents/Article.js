@@ -13,12 +13,14 @@ class Article extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('----', this.props.isOpen, nextProps.isOpen)
+  //  console.log('----', this.props.isOpen, nextProps.isOpen)
   }
 
+/*
   componentWillMount(){
     debugger
   }
+*/
 
   render(){
     const {article, isOpen, toggleOpen} = this.props;
@@ -36,7 +38,7 @@ class Article extends Component {
 
   setContainerRef = ref => {
     this.container = ref;
-    console.log(this.container);
+  //  console.log(this.container);
   }
 
   ComponentDidMount(){
@@ -58,4 +60,4 @@ class Article extends Component {
 
 }
 
-export default toggleOpen(Article)
+export default Article
