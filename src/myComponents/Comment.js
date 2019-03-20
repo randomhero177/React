@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function Comment({comment}) {
-  console.log(comment)
+  
     return (
       <div>
         <h3>{comment.user}</h3>

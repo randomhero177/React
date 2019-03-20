@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Article from './Article'
 import Comment from './Comment'
 import toggleOpen from '../myDecorators/toggleOpen'
+import PropTypes from 'prop-types'
 
 function CommentList({comments = [], isOpen, toggleOpen}){
     const btnText = (isOpen) ? "Не покажи" : "Покажи";
@@ -14,6 +15,11 @@ function CommentList({comments = [], isOpen, toggleOpen}){
     )
 }
 
+CommentList.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleOpen: PropTypes.func
+}
+
 function getBody({comments = [], isOpen}){
   if(!isOpen) return null
 
@@ -21,6 +27,10 @@ function getBody({comments = [], isOpen}){
   return(
     <div>{commentElem}</div>
   )
+}
+
+getBody.propTypes = {
+  isOpen: PropTypes.bool.isRequired
 }
 
 export default toggleOpen(CommentList)

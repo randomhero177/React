@@ -2,14 +2,17 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import CommentList from './CommentsList'
 import toggleOpen from '../myDecorators/toggleOpen'
+import accordeon from '../myDecorators/accordion'
 
-class Article extends Component {
+export default class Article extends Component {
   static propTypes = {
     article: PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       text: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    toggleOpen: PropTypes.func
   }
 
   componentWillReceiveProps(nextProps){
@@ -52,12 +55,14 @@ class Article extends Component {
     return (
       <section>
         {article.text}
-        <CommentList comments = {article.comments}/>
+        <CommentList comments = {article.comments} ref = {this.setCommentsRef} />
       </section>
 
     )
   }
 
-}
+  setCommentsRef = ref => {
+    console.log('----', ref)
+  }
 
-export default Article
+}
