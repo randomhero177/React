@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {findDOMNode} from 'react-dom'
 import PropTypes from 'prop-types'
 import CommentList from './CommentsList'
 import toggleOpen from '../myDecorators/toggleOpen'
@@ -41,7 +42,7 @@ export default class Article extends Component {
 
   setContainerRef = ref => {
     this.container = ref;
-  //  console.log(this.container);
+    console.log(this.container);
   }
 
   ComponentDidMount(){
@@ -62,7 +63,7 @@ export default class Article extends Component {
   }
 
   setCommentsRef = ref => {
-    console.log('----', ref)
+    console.log('----', ref, findDOMNode(ref))
   }
 
 }
