@@ -8,6 +8,9 @@ import UserForm from './UserForm'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 
+import SetDayPicker from './myComponents/SetDayPicker'
+
+
 class App extends Component{
   static propTypes = {
 
@@ -18,15 +21,17 @@ class App extends Component{
   }
 
   render(){
-    const options = this.props.articles.map(article => ({
+    const {articles} = this.props;
+    const options = articles.map(article => ({
       label:  article.title,
       value: article.id
     }))
     return (
       <div>
         <UserForm />
+        <SetDayPicker />
         <Select options = {options} value = {this.state.selection} onChange = {this.changeSelection} multi = {true}/>
-        <ArticleList articles = {this.props.articles} />
+        <ArticleList articles = {articles} openDefault = {articles[0].id}/>
       </div>
     )
   }

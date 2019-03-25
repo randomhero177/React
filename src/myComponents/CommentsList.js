@@ -3,6 +3,7 @@ import Article from './Article'
 import Comment from './Comment'
 import toggleOpen from '../myDecorators/toggleOpen'
 import PropTypes from 'prop-types'
+import CommentForm from './CommentForm'
 
 function CommentList({comments = [], isOpen, toggleOpen}){
     const btnText = (isOpen) ? "Не покажи" : "Покажи";
@@ -25,7 +26,10 @@ function getBody({comments = [], isOpen}){
 
   const commentElem = (comments.length) ?  comments.map((comment) => <div key = {comment.id}><Comment comment = {comment}/></div>) : 'хуй';
   return(
-    <div>{commentElem}</div>
+    <div>
+      {commentElem}
+      <CommentForm />
+    </div>
   )
 }
 

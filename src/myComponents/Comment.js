@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+
 function Comment({comment}) {
-  
+
     return (
       <div>
         <h3>{comment.user}</h3>

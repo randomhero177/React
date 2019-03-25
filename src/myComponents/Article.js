@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import CommentList from './CommentsList'
 import toggleOpen from '../myDecorators/toggleOpen'
 import accordeon from '../myDecorators/accordion'
+import { CSSTransitionGroup } from 'react-transition-group'
+import './article.css'
 
 export default class Article extends Component {
   static propTypes = {
@@ -35,7 +37,15 @@ export default class Article extends Component {
         <button onClick = {toggleOpen}>
           {isOpen ? 'close' : 'open'}
         </button>
-        {this.getArticleBody()}
+        <CSSTransitionGroup
+          transitionName='article'
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={500}
+          component = 'div'>
+          {this.getArticleBody()}
+        </CSSTransitionGroup>
       </div>
     )
   }
