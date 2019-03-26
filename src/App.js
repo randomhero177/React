@@ -15,14 +15,12 @@ class App extends Component{
 
 
   render(){
-    const {articles} = this.props;
-
     return (
       <div>
         <Counter />
         <UserForm />
-        <Filters />
-        <ArticleList articles = {articles} openDefault = {articles[0].id}/>
+        <Filters articles = {[]}/>
+        <ArticleList />
       </div>
     )
   }

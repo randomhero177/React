@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
 import {findDOMNode} from 'react-dom'
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 import CommentList from '../CommentsList'
 import toggleOpen from '../../myDecorators/toggleOpen'
 import accordeon from '../../myDecorators/accordion'
 import { CSSTransitionGroup } from 'react-transition-group'
+import {deleteArticle} from '../../AC'
 import './style.css'
 
-export default class Article extends Component {
+class Article extends Component {
   static propTypes = {
     article: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -37,6 +39,7 @@ export default class Article extends Component {
         <button onClick = {toggleOpen}>
           {isOpen ? 'close' : 'open'}
         </button>
+        <button onClick = {this.handleDelete}> delete </button>
         <CSSTransitionGroup
           transitionName='article'
           transitionAppear={true}
@@ -48,6 +51,12 @@ export default class Article extends Component {
         </CSSTransitionGroup>
       </div>
     )
+  }
+
+  handleDelete = () => {
+    const {deleteArticle, article} = this.props;
+    deleteArticle(article.id)
+    console.log('--deleting --')
   }
 
   setContainerRef = ref => {
@@ -75,5 +84,6 @@ export default class Article extends Component {
   setCommentsRef = ref => {
     console.log('----', ref, findDOMNode(ref))
   }
-
 }
+
+export default connect(null, {deleteArticle})(Article)
