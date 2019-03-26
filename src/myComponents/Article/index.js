@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import {findDOMNode} from 'react-dom'
 import PropTypes from 'prop-types'
-import CommentList from './CommentsList'
-import toggleOpen from '../myDecorators/toggleOpen'
-import accordeon from '../myDecorators/accordion'
+import CommentList from '../CommentsList'
+import toggleOpen from '../../myDecorators/toggleOpen'
+import accordeon from '../../myDecorators/accordion'
 import { CSSTransitionGroup } from 'react-transition-group'
-import './article.css'
+import './style.css'
 
 export default class Article extends Component {
   static propTypes = {
