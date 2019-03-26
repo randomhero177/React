@@ -6,6 +6,7 @@ import ArticleList from './myComponents/ArticleList'
 import {articles} from './fixtures'
 import UserForm from './UserForm'
 import Filters from './myComponents/Filters'
+import Counter from './myComponents/Counter'
 
 class App extends Component{
   static propTypes = {
@@ -18,6 +19,7 @@ class App extends Component{
 
     return (
       <div>
+        <Counter />
         <UserForm />
         <Filters />
         <ArticleList articles = {articles} openDefault = {articles[0].id}/>
