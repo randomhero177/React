@@ -7,7 +7,7 @@ export default class Filters extends Component {
     return(
       <div>
         <DayPicker />
-        <SelectFilter />
+        <SelectFilter/>
       </div>
     )
   }

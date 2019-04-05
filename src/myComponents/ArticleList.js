@@ -15,8 +15,8 @@ import {connect} from 'react-redux'
      }
 
   render(){
-    const {openItemId, toggleOpen } = this.props;
-    const articleElements = this.props.articles.map((article) => <li key = {article.id} >
+    const {articles, openItemId, toggleOpen } = this.props;
+    const articleElements = articles.map((article) => <li key = {article.id} >
       <Article
         article = {article}
         openItemId = {openItemId}
@@ -33,6 +33,23 @@ import {connect} from 'react-redux'
 
 }
 
-export default connect(state => ({
-    articles: state.articles
-}))(accordion(ArticleList))
+export default connect(({filters, articles}) => {
+    let {selected, dateRange: {from, to}} = filters;
+    selected = selected.map(article => article.value)
+    
+
+    const filteredArticles = articles.filter(article => {
+    const published =  Date.parse(article.date);
+
+      console.log(selected, article);
+
+      return (!selected.length || selected.includes(article.id)) &&
+      (!from  || !to || (published > from && published < to))
+    });
+    console.log(filteredArticles);
+
+
+    return {
+      articles: filteredArticles
+    }
+})(accordion(ArticleList))

@@ -6,7 +6,6 @@ export default (OriginalComponent) => class AccordeonComponent extends Component
   }
 
   render(){
-    console.log(this.props);
     return <OriginalComponent
       {...this.props}
       openItemId = {this.state.openItemId}

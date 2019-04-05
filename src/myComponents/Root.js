@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 function Root(){
   return(
     <Provider store = {store}>
-      <App />
+      <App/>
     </Provider>
   )
 }

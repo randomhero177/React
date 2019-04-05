@@ -61,7 +61,6 @@ class Article extends Component {
 
   setContainerRef = ref => {
     this.container = ref;
-    console.log(this.container);
   }
 
   ComponentDidMount(){
