@@ -23,8 +23,8 @@ CommentList.propTypes = {
 
 function getBody({comments = [], isOpen}){
   if(!isOpen) return null
-
-  const commentElem = (comments.length) ?  comments.map((comment) => <div key = {comment.id}><Comment comment = {comment}/></div>) : 'хуй';
+  console.log(comments);
+  const commentElem = (comments.length) ?  comments.map((id) => <div key = {id}><Comment id = {id}/></div>) : 'хуй';
   return(
     <div>
       {commentElem}
