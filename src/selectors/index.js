@@ -5,6 +5,8 @@ const articlesGetter = state => state.articles;
 const idGetter = (state, props) => props.id;
 const commentsGetter = state => state.comments;
 
+console.log(filtersGetter);
+
 export const filterArticlesSelector = createSelector(filtersGetter, articlesGetter, (filters, articles) => {
   let {selected, dateRange: {from, to}} = filters;
   selected = selected.map(article => article.value)
@@ -18,5 +20,5 @@ export const filterArticlesSelector = createSelector(filtersGetter, articlesGett
 })
 
 export const commentSelectorFactory = () => createSelector(idGetter, commentsGetter, (id, comments) => {
-  return comments.find(comment => comment.id === id)
+  return comments[id]
 })

@@ -70,7 +70,7 @@ class Article extends Component {
   getArticleBody() {
     const {article, isOpen} = this.props;
     if(!isOpen) return null
-    console.log(article.comments);
+    
     return (
       <section>
         {article.text}
