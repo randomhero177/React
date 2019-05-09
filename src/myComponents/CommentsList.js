@@ -5,13 +5,13 @@ import toggleOpen from '../myDecorators/toggleOpen'
 import PropTypes from 'prop-types'
 import CommentForm from './CommentForm'
 
-function CommentList({comments = [], isOpen, toggleOpen}){
+function CommentList({article, isOpen, toggleOpen}){
     const btnText = (isOpen) ? "Не покажи" : "Покажи";
 
     return(
       <div>
-        {comments.length  ? (<button onClick = {toggleOpen}>{btnText}</button>) : 'хуй'}
-        {getBody({comments, isOpen})}
+        {article.comments.length  ? (<button onClick = {toggleOpen}>{btnText}</button>) : 'хуй'}
+        {getBody({article, isOpen})}
       </div>
     )
 }
@@ -21,14 +21,14 @@ CommentList.propTypes = {
   toggleOpen: PropTypes.func
 }
 
-function getBody({comments = [], isOpen}){
+function getBody({article: {comments = [], id }, isOpen}){
   if(!isOpen) return null
-  
+
   const commentElem = (comments.length) ?  comments.map((id) => <div key = {id}><Comment id = {id}/></div>) : 'хуй';
   return(
     <div>
       {commentElem}
-      <CommentForm />
+      <CommentForm articleId = {id}/>
     </div>
   )
 }

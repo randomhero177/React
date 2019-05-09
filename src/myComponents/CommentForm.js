@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {findDOMNode} from 'react-dom'
 import './form.css'
+import {addComment} from '../AC'
+import {connect} from 'react-redux'
 
 class CommentForm extends Component {
 
@@ -16,7 +18,7 @@ class CommentForm extends Component {
 
   render(){
     return (
-      <form action = 'Post'>
+      <form action = 'Post' onSubmit = {this.handleSubmit}>
         <div>
           <div>name:</div>
           <input type='text'
@@ -30,6 +32,9 @@ class CommentForm extends Component {
             value = {this.state.text}
             onChange = {this.handleChange('text')}
             className = {this.getClassName('text')}/>
+            <input
+              type="submit"
+              value="ОТправить" />
         </div>
       </form>
     )
@@ -42,12 +47,21 @@ class CommentForm extends Component {
     this.setState({
       [type]: value
     });
+  //  addComment(value);
   }
 
   getClassName = type => {
     return (this.state[type].length && this.state[type].length < limits[type].min) ? 'input--error' : ''
   }
 
+  handleSubmit = (ev) => {
+    ev.preventDefault();
+    this.props.addComment(this.state);
+    this.setState({
+      user: '',
+      text: ''
+    })
+  }
 }
 
 const limits = {
@@ -61,4 +75,6 @@ const limits = {
   }
 }
 
-export default CommentForm
+export default connect(null, (dispatch, ownProps) => ({
+  addComment: (comment) => dispatch(addComment(comment, ownProps.articleId))
+}))(CommentForm)
